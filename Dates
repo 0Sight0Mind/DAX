@@ -1,0 +1,14 @@
+------------------Format----------------
+
+DayShortName = FORMAT(Dates[Date], "ddd") 
+
+------------------New Column------------------
+Dates = CALENDAR(MIN(Sales[OrderDate]), MAX(Sales[OrderDate]))
+Year = YEAR(Dates[Date])
+MonthShortName = FORMAT(Dates[Date], "MMM")
+MonthNo = MONTH(Dates[Date]) 
+DayNo = DAY(Dates[Date]) 
+DayShortName = FORMAT(Dates[Date], "ddd") 
+
+------------------Date Diff------------------
+Order2Delivery = DATEDIFF(Sales[OrderDate], Sales[DeliveryDueDate], DAY)
