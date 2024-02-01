@@ -1,0 +1,19 @@
+---------Creating Measures with variables---------
+
+TotalSales_w_increase = 
+VAR Increase = 0.05
+RETURN CALCULATE([TotalSales] +([TotalSales]*Increase))
+
+
+
+---------Creating Measures with Filters---------
+
+2018 Bikes Revenue = 
+CALCULATE(SUM(Sales[LinePrice]),
+FILTER(Sales, Sales[ProductCategory] = "Bikes"),
+FILTER(Sales, YEAR(Sales[OrderDate]) = 2018))
+
+
+----------Iterative sample---------------------
+AvgProfit_x = AVERAGEX(Sales, Sales[LinePrice]-Sales[LineCost])
+
