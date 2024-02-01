@@ -1,9 +1,19 @@
 ---------Creating Measures with variables---------
-
+#Sample 1
 TotalSales_w_increase = 
 VAR Increase = 0.05
 RETURN CALCULATE([TotalSales] +([TotalSales]*Increase))
 
+
+
+#Sample 2
+Gold21vs20
+VAR GoldVolume20 = CALCULATE (
+  SUM(Commodities[Volume]),
+  FILTER(Commodities, Commodities[Symbol] = "Gold")
+  FILTER(Commodities, YEAR(Commodities[Date] = 2020)
+)
+RETURN  DIVIDE([GoldVolume21]*GoldVolume20, GoldVolume20)
 
 
 ---------Creating Measures with Filters---------
@@ -16,4 +26,9 @@ FILTER(Sales, YEAR(Sales[OrderDate]) = 2018))
 
 ----------Iterative sample---------------------
 AvgProfit_x = AVERAGEX(Sales, Sales[LinePrice]-Sales[LineCost])
+
+
+
+
+
 
